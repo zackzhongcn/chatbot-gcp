@@ -21,8 +21,9 @@ function Chat() {
         return value;
       });
       setQnAObjects(updatedQnAObjects);
+      setAnswer('');
     }
-  }, [answer]);
+  }, [answer, qnAObjects]);
 
   const onChat = async () => {
     if (qnAObjects.length === 1 && qnAObjects[0]?.question === '') {
