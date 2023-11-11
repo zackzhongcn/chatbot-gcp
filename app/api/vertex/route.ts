@@ -21,13 +21,19 @@ export async function POST(request: Request) {
     console.log('json: ', json);
     const { question } = json;
 
+    const credential = JSON.parse(
+      Buffer.from(process.env.GOOGLE_SERVICE_KEY as string, 'base64').toString()
+    );
     const clientOptions = {
       apiEndpoint: 'us-central1-aiplatform.googleapis.com',
+      credentials: {
+        client_email: credential.client_email,
+        private_key: credential.private_key,
+      },
     };
     const publisher = 'google';
-    // const model = 'textembedding-gecko@001';
     const model = 'text-bison@001';
-    // Instantiates a client
+
     const predictionServiceClient = new PredictionServiceClient(clientOptions);
     // Configure the parent resource
     const endpoint = `projects/${project}/locations/${location}/publishers/${publisher}/models/${model}`;
