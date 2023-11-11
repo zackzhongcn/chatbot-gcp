@@ -2,13 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 // Import the helper module for converting arbitrary protobuf.Value objects.
 import aiplatform, { helpers, protos } from '@google-cloud/aiplatform';
 import { google } from '@google-cloud/aiplatform/build/protos/protos';
-import fs from 'fs';
-
-// Write the credentials to a temporary JSON file
-const tempFilePath = 'credentials.json';
-fs.writeFileSync(tempFilePath, process.env.GOOGLE_CREDENTIALS as string);
-// Set the GOOGLE_APPLICATION_CREDENTIALS environment variable
-process.env.GOOGLE_APPLICATION_CREDENTIALS = tempFilePath;
 
 /**
  * TODO(developer): Uncomment these variables before running the sample.\
