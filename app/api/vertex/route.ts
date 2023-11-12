@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     const instances: google.protobuf.IValue[] = [instanceValue];
     const parameter = {
       temperature: 0,
-      maxOutputTokens: 256,
+      maxOutputTokens: 1024,
       topP: 0,
       topK: 1,
     };
