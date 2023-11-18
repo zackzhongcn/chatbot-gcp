@@ -78,7 +78,7 @@ function Chat() {
     <>
       <div className={styles.chatArea}>
         {qnAObjects.map((value, index) => (
-          <div key={index}>
+          <div className='mx-1' key={index}>
             {value.question && (
               <div className={styles.box}>{value.question}</div>
             )}
